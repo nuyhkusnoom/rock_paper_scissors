@@ -6,7 +6,7 @@ Not sure what's the best way to keep track of progress, so I'm just going to go 
 
 TO-DO:
 
-[ ] Basic Rock Paper Scissors logic
+[X] Basic Rock Paper Scissors logic
 [ ] UI: selection buttons for the player
 [ ] UI: win/loss tracker
 [ ] UI: reset button that will reset the current tally of points (AI remains same)
@@ -14,5 +14,6 @@ TO-DO:
 [ ] AI training algorithm (DNN model reinforcement learning)
 
 UPDATE: July 28, 2022
-
 Set up basic stuff, put my head down, and get started building.
+Finished basic logic. I want to work on the more visual UI things first before in order to get a good feel for how I want to proceed.
+I should organize the files and make a lot of helper functions, lest it get too disorderly.
