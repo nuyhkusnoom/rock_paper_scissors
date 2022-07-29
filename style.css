@@ -27,6 +27,7 @@ body{
     justify-content: space-evenly;
     border: 1px solid black;
     border-radius: 5px;
+    flex: 1;
 }
 
 .PlayerSelectionArea{
@@ -60,6 +61,9 @@ body{
     border: 1px solid black;
     border-radius: 5px;
     margin: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 button {
@@ -74,4 +78,12 @@ button {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.ScoreTally {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
 }

@@ -81,7 +81,7 @@ selection.forEach((selection) => {
 
 function displayResults(result, playerSelection, computerSelection) {
 
-    results = document.querySelector('.ResultsArea');
+    const results = document.querySelector('.ResultsArea');
     removeAllChildNodes(results) // reset the results area
 
     const playerResult = document.createElement('div');
@@ -149,4 +149,36 @@ function removeAllChildNodes(parent) {
 }
 
 // match start logic
-const startMatch = document.querySelector('.StartMatch');
+const startMatchButton = document.querySelector('#StartMatch');
+startMatchButton.addEventListener('click', startMatch);
+
+function startMatch() {
+
+    let wins = prompt("Play up to how many wins?", 5);
+    while ( !(Number.isInteger(Number(wins))) || !(wins > 0) ) {
+        let wins = prompt("Play up to how many wins? (Please enter a positive integer)", 5);
+    }
+    const bestof = (wins * 2) - 1 // if 9 round wins is victory, the match is a best of 17
+
+    // reset the scoreboard and put in title and beginning scores (0 and 0)
+    const scoreboard = document.querySelector('.Scoreboard');
+    removeAllChildNodes(scoreboard)
+    const matchTitle = document.createElement('div');
+
+    matchTitle.textContent = `Playing to ${wins} wins (Best of ${bestof})`;
+    const playerScore = document.createElement('div');
+    playerScore.textContent = "Player: 0";
+    const computerScore = document.createElement('div');
+    computerScore.textContent = "Computer: 0";
+
+    const scoreTally = document.createElement('div');
+    scoreTally.classList.add('ScoreTally');
+
+    scoreTally.appendChild(matchTitle);
+    scoreTally.appendChild(playerScore);
+    scoreTally.appendChild(computerScore);
+    scoreboard.appendChild(scoreTally);
+
+    
+
+}
