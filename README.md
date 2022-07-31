@@ -8,12 +8,15 @@ TO-DO:
 
 <ul>
 <li> [X] Basic Rock Paper Scissors logic </li>
-<li> [ ] UI: selection buttons for the player </li>
-<li> [ ] UI: win/loss tracker </li>
-<li> [ ] UI: reset button that will reset the current tally of points (AI remains same) </li>
+<li> [X] UI: selection buttons for the player </li>
+<li> [X] UI: win/loss tracker </li>
+<li> [X] UI: reset button that will reset the current tally of points (AI remains same) </li>
 <li> [ ] UI: reset button that will reset the training of the AI </li>
 <li> [ ] AI training algorithm (DNN model reinforcement learning) </li>
 </ul>
+
+UPDATE: July 31, 2022
+Finished the scope of this project that The Odin Project assigns (an app that lets you play RPS against a random selection bot that tracks scores). From here I need to spend some time learning modules and all that stuff properly so I can organize files and not have all the functions be on one script. Progress was faster than expected. Going to move on to other projects first, then I will revisit this to implement the Deep Learning algorithm.
 
 UPDATE: July 28, 2022
 Set up basic stuff, put my head down, and get started building.
