@@ -41,7 +41,7 @@ function getComputerChoice() {
 //     )
 // }
 
-// plays a single round of rock-paper-scissors
+// play a single round of rock-paper-scissors
 function playRound (playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
@@ -73,8 +73,12 @@ selection.forEach((selection) => {
 
     selection.addEventListener('click', () => {
 
+        // result is a list: ["W/L", "playerSelection", "computerSelection"]
         let result = playRound(selection.id, getComputerChoice());
         displayResults(result[0], result[1], result[2]);
+        if (matchOngoing === true) {
+            continueMatch(result[0]);
+        }
 
     });
 });
@@ -152,24 +156,37 @@ function removeAllChildNodes(parent) {
 const startMatchButton = document.querySelector('#StartMatch');
 startMatchButton.addEventListener('click', startMatch);
 
+// initialize score in memory
+let playerWins = null;
+let computerWins = null;
+
+// initialize match status
+let matchOngoing = false;
+let wins = null;
+let bestof = null;
+
 function startMatch() {
 
-    let wins = prompt("Play up to how many wins?", 5);
-    while ( !(Number.isInteger(Number(wins))) || !(wins > 0) ) {
-        let wins = prompt("Play up to how many wins? (Please enter a positive integer)", 5);
+    wins = prompt("Play up to how many wins?", 5);
+    while ( !(Number.isInteger(Number(wins))) || !(Number(wins) > 0) ) {
+        wins = prompt("Play up to how many wins? (Please enter a positive integer)", 5);
     }
-    const bestof = (wins * 2) - 1 // if 9 round wins is victory, the match is a best of 17
+    bestof = (wins * 2) - 1 // if 9 round wins is victory, the match is a best of 17
+
+    playerWins = 0;
+    computerWins = 0;
+    matchOngoing = true;
 
     // reset the scoreboard and put in title and beginning scores (0 and 0)
     const scoreboard = document.querySelector('.Scoreboard');
-    removeAllChildNodes(scoreboard)
+    removeAllChildNodes(scoreboard);
     const matchTitle = document.createElement('div');
 
     matchTitle.textContent = `Playing to ${wins} wins (Best of ${bestof})`;
     const playerScore = document.createElement('div');
-    playerScore.textContent = "Player: 0";
+    playerScore.textContent = `Player: ${playerWins}`;
     const computerScore = document.createElement('div');
-    computerScore.textContent = "Computer: 0";
+    computerScore.textContent = `Computer: ${computerWins}`;
 
     const scoreTally = document.createElement('div');
     scoreTally.classList.add('ScoreTally');
@@ -178,7 +195,44 @@ function startMatch() {
     scoreTally.appendChild(playerScore);
     scoreTally.appendChild(computerScore);
     scoreboard.appendChild(scoreTally);
+}
 
-    
+// continue the match for one round. proccessed on click of player selection.
+function continueMatch(result) {
+
+    if (result === "WIN") {
+        playerWins += 1;
+    } else if (result === "LOSS") {
+        computerWins += 1;
+    }
+
+    const matchTitle = document.createElement('div');
+
+    if (playerWins == wins) { // player wins
+        matchTitle.textContent = `You win! Final Score:`;
+        matchOngoing = false;
+    } else if (computerWins == wins) { // computer wins
+        matchTitle.textContent = `Computer wins! Final Score:`;
+        matchOngoing = false;
+    } else { // match is still ongoing
+        matchTitle.textContent = `Playing to ${wins} wins (Best of ${bestof})`;
+    }
+
+    const playerScore = document.createElement('div');
+    playerScore.textContent = `Player: ${playerWins}`;
+    const computerScore = document.createElement('div');
+    computerScore.textContent = `Computer: ${computerWins}`;
+
+    // refresh scoreboard
+    const scoreboard = document.querySelector('.Scoreboard');
+    removeAllChildNodes(scoreboard);
+
+    const scoreTally = document.createElement('div');
+    scoreTally.classList.add('ScoreTally');
+
+    scoreTally.appendChild(matchTitle);
+    scoreTally.appendChild(playerScore);
+    scoreTally.appendChild(computerScore);
+    scoreboard.appendChild(scoreTally);
 
 }
