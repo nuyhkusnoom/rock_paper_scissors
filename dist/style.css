@@ -1,4 +1,4 @@
-body{
+/* body{
     display: flex;
     flex-direction: column;
 }
@@ -86,4 +86,127 @@ button {
     align-items: center;
     justify-content: space-evenly;
     flex: 1;
+} */
+
+:root {
+    --font-color: rgb(0, 0, 0);
+    --border-color: #222;
+    --background: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255);
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6;
+}
+  
+body {
+    font-family: 'Montserrat', cursive;
+    font-size: 1.6rem;
+    color: var(--font-color);
+    background-attachment: fixed;
+    background-size: cover;
+}
+  
+header {
+    font-size: 2.4rem;
+}
+
+button {
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+    border-style: none;
+    outline: none;
+}
+
+/* Content */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+.button-nav {
+    padding: 2rem;
+    font-size: 2rem;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+    transition: transform 0.3s;
+}
+  
+.button-nav.active {
+    border-bottom: 2px solid var(--font-color);
+}
+  
+.button-nav:hover {
+    transform: translateY(-10%);
+}
+  
+/* Main */
+  
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    margin: 6rem 0;
+    font-size: 2rem;
+    background-color: var(--background);
+    border: 1px solid var(--border-color);
+    height: clamp(200px, 100%, 1200px);
+    width: clamp(300px, 60%, 1600px);
+}
+  
+/* Home page */
+  
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s;
+}
+  
+.home p {
+    text-align: center;
+    font-size: 100%;
+}
+
+/* Play page */
+
+.play {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4rem;
+    animation: fadeIn 1.5s;
+  }
+
+/* Footer */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background);
 }
