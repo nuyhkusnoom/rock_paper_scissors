@@ -1,0 +1,23 @@
+{
+  "name": "rock_paper_scissors",
+  "version": "1.0.0",
+  "description": "This will be my first major project on The Odin Project. Ultimately, I want the user to be able to play rock-paper-scissors with an AI bot that will learn patterns from the user's playstyle. There will be a UI for the player to select and confirm their choice, and a scorekeeper that will show wins/losses and other relevant statistics.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuyhkusnoom/rock_paper_scissors.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nuyhkusnoom/rock_paper_scissors/issues"
+  },
+  "homepage": "https://github.com/nuyhkusnoom/rock_paper_scissors#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
