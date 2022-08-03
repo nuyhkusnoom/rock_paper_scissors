@@ -14,10 +14,11 @@ TO-DO:
 <li> [X] Navigation Bar </li>
 <li> [ ] UI: reset button that will reset the training of the AI </li>
 <li> [ ] AI training algorithm (DNN model reinforcement learning) </li>
+<li> [ ] Dark Mode </li>
 </ul>
 
 UPDATE: August 3, 2022
-I am getting the hang of modules now. At first I was super confused trying to keep track of everything and having no idea where variables are stored, but now I think I have a decent understanding. I re-did all the UI and now I can re-implement the game logic.
+I am getting the hang of modules now. At first I was super confused trying to keep track of everything and having no idea where variables are stored, but now I think I have a decent understanding. I re-did all the UI and now I can re-implement the game logic. EDIT - I got all the basic game logic done, so all I have left is to implement the AI training section. I'm very comfortable using modules now, and I can see why it's standard practice.
 
 UPDATE: August 2, 2022
 I think I know enough of webpack to at least make modules and stuff, so I will continue with this project. Hopefully nothing breaks.
