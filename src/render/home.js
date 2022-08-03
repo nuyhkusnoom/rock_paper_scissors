@@ -1,4 +1,4 @@
-import reset from "./helper/reset";
+import reset from "../helper/reset";
 
 function createHome() {
     const home = document.createElement("div");

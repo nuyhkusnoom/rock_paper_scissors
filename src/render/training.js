@@ -1,4 +1,4 @@
-import reset from "./helper/reset";
+import reset from "../helper/reset";
 
 function createTraining() {
     const home = document.createElement("div");
