@@ -8,16 +8,9 @@ function createPlay() {
     play.classList.add("play");
 
     const scoreboard = createScoreboard();
-
     const selectionArea = createSelectionArea();
-    selectionArea.classList.add("selection-area");
-
-    const resultsArea = document.createElement('div');
-    resultsArea.classList.add("results-area");
-
+    const resultsArea = createResultsArea();
     const startMatchButton = createStartMatchButton();
-    startMatchButton.classList.add("menu-button");
-    startMatchButton.setAttribute('id', 'start-match');
 
     play.appendChild(scoreboard);
     play.appendChild(selectionArea);
@@ -48,9 +41,7 @@ function createScoreboard() {
     scores.appendChild(playerScoreText);
     scores.appendChild(computerScoreText);
 
-    const scoreboardText = document.createElement('div');
-    scoreboardText.setAttribute('id', 'scoreboard-text');
-    scoreboardText.textContent = "BaHH";
+    const scoreboardText = createScoreboardText();
 
     scoreboard.appendChild(scoreboardText);
     scoreboard.appendChild(scores);
@@ -58,20 +49,47 @@ function createScoreboard() {
     return scoreboard;
 }
 
+function createScoreboardText() {
+
+    const scoreboardText = document.createElement('div');
+    scoreboardText.setAttribute('id', 'scoreboard-text');
+    
+    if (state.matchOngoing === true) {
+        scoreboardText.textContent = `Playing to ${state.winningScore} wins. (Best of ${state.winningScore*2 - 1})`;
+    } else {
+        scoreboardText.textContent = `Click "Start Match" to play up to any number of rounds of your choosing.`;
+    }
+
+    return scoreboardText;
+}
+
 function createSelectionArea() {
     const selectionArea = document.createElement('div');
+    selectionArea.classList.add("selection-area");
 
-    const rockSelection = document.createElement('button');
-    rockSelection.classList.add('selection-button');
+    const rockSelection = document.createElement('input');
+    rockSelection.classList.add('selection-input');
     rockSelection.setAttribute('id', 'rock-selection');
+    rockSelection.type = "image";
+    rockSelection.src = "images/rockb.jpg";
+    rockSelection.alt = "Rock";
+    rockSelection.draggable = false;
 
-    const paperSelection = document.createElement('button');
-    paperSelection.classList.add('selection-button');
+    const paperSelection = document.createElement('input');
+    paperSelection.classList.add('selection-input');
     paperSelection.setAttribute('id', 'paper-selection');
+    paperSelection.type = "image";
+    paperSelection.src = "images/paperb.jpg";
+    paperSelection.alt = "Paper";
+    paperSelection.draggable = false;
 
-    const scissorSelection = document.createElement('button');
-    scissorSelection.classList.add('selection-button');
+    const scissorSelection = document.createElement('input');
+    scissorSelection.classList.add('selection-input');
     scissorSelection.setAttribute('id', 'scissor-selection');
+    scissorSelection.type = "image";
+    scissorSelection.src = "images/scissorb.jpg";
+    scissorSelection.alt = "Scissor";
+    scissorSelection.draggable = false;
 
     selectionArea.appendChild(rockSelection);
     selectionArea.appendChild(paperSelection);
@@ -80,9 +98,83 @@ function createSelectionArea() {
     return selectionArea;
 }
 
+function createResultsArea () {
+    const resultsArea = document.createElement('div');
+    resultsArea.classList.add("results-area");
+
+    const playerSelectionImage = document.createElement('img');
+    playerSelectionImage.classList.add('selection-input');
+    playerSelectionImage.draggable = false;
+
+    const computerSelectionImage = document.createElement('img');
+    computerSelectionImage.classList.add('selection-input');
+    computerSelectionImage.draggable = false;
+
+    const resultText = document.createElement('div');
+    resultText.classList.add('result-text');
+
+    const playerSelectionArea = document.createElement('div');
+    playerSelectionArea.classList.add('result-selection-area');
+
+    const computerSelectionArea = document.createElement('div');
+    computerSelectionArea.classList.add('result-selection-area');
+
+    const playerSelectionText = document.createElement('p');
+    playerSelectionText.classList.add('selection-text');
+    playerSelectionText.textContent = "You played:";
+
+    const computerSelectionText = document.createElement('p');
+    computerSelectionText.classList.add('selection-text');
+    computerSelectionText.textContent = "Computer played:";
+
+    playerSelectionArea.appendChild(playerSelectionText);
+    playerSelectionArea.appendChild(playerSelectionImage);
+
+    computerSelectionArea.appendChild(computerSelectionText);
+    computerSelectionArea.appendChild(computerSelectionImage);
+
+    // if there are no results, don't show results.
+    if (state.roundOutcome === null) {
+        return resultsArea;
+    }
+    
+    if (state.playerSelection === "ROCK") {
+        playerSelectionImage.src = "images/rockb.jpg";
+    } else if (state.playerSelection === "PAPER") {
+        playerSelectionImage.src = "images/paperb.jpg";
+    } else if (state.playerSelection === "SCISSOR") {
+        playerSelectionImage.src = "images/scissorb.jpg";
+    }
+
+    if (state.computerSelection === "ROCK") {
+        computerSelectionImage.src = "images/rocka.jpg";
+    } else if (state.computerSelection === "PAPER") {
+        computerSelectionImage.src = "images/papera.jpg";
+    } else if (state.computerSelection === "SCISSOR") {
+        computerSelectionImage.src = "images/scissora.jpg";
+    }
+
+    if (state.roundOutcome === "TIE") {
+        resultText.textContent = "Tie!"
+    } else if (state.roundOutcome === "WIN") {
+        resultText.textContent = "You Won!"
+    } else if (state.roundOutcome === "LOSS") {
+        resultText.textContent = "You Lost!"
+    }
+
+    resultsArea.appendChild(playerSelectionArea);
+    resultsArea.appendChild(resultText);
+    resultsArea.appendChild(computerSelectionArea);
+
+    return resultsArea;
+}
+
 function createStartMatchButton () {
     const startMatchButton = document.createElement('button');
+    startMatchButton.classList.add("menu-button");
+    startMatchButton.setAttribute('id', 'start-match');
     startMatchButton.textContent = "Start Match";
+    startMatchButton.id = "start-match-button"
     
     return startMatchButton;
 }
