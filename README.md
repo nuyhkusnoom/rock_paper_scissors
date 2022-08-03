@@ -11,10 +11,13 @@ TO-DO:
 <li> [X] UI: selection buttons for the player </li>
 <li> [X] UI: win/loss tracker </li>
 <li> [X] UI: reset button that will reset the current tally of points (AI remains same) </li>
-<li> [ ] Navigation Bar </li>
+<li> [X] Navigation Bar </li>
 <li> [ ] UI: reset button that will reset the training of the AI </li>
 <li> [ ] AI training algorithm (DNN model reinforcement learning) </li>
 </ul>
+
+UPDATE: August 3, 2022
+I am getting the hang of modules now. At first I was super confused trying to keep track of everything and having no idea where variables are stored, but now I think I have a decent understanding. I re-did all the UI and now I can re-implement the game logic.
 
 UPDATE: August 2, 2022
 I think I know enough of webpack to at least make modules and stuff, so I will continue with this project. Hopefully nothing breaks.

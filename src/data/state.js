@@ -6,10 +6,10 @@ let state = {
     computerScore: 0,
     matchOngoing: false,
     winningScore: null,
-    playerSelection: "ROCK",
-    computerSelection: "PAPER",
-    roundOutcome: "TIE",
-    matchOutcome: "LOSS",
+    playerSelection: null,
+    computerSelection: null,
+    roundOutcome: null,
+    matchOutcome: null,
 };
 
 export const getState = () => state;
