@@ -1,5 +1,7 @@
 import reset from "../helper/reset";
-import { getState } from "../data/state";
+import { getState, setState } from "../game/state";
+import startMatch from "../game/start";
+import playRound from "../game/round";
 
 let state = getState();
 
@@ -53,12 +55,7 @@ function createScoreboardText() {
 
     const scoreboardText = document.createElement('div');
     scoreboardText.setAttribute('id', 'scoreboard-text');
-    
-    if (state.matchOngoing === true) {
-        scoreboardText.textContent = `Playing to ${state.winningScore} wins. (Best of ${state.winningScore*2 - 1})`;
-    } else {
-        scoreboardText.textContent = `Click "Start Match" to play up to any number of rounds of your choosing.`;
-    }
+    scoreboardText.textContent = state.scoreboardText;
 
     return scoreboardText;
 }
@@ -74,6 +71,9 @@ function createSelectionArea() {
     rockSelection.src = "images/rockb.jpg";
     rockSelection.alt = "Rock";
     rockSelection.draggable = false;
+    rockSelection.addEventListener('click', (e) => {
+        playRound(e.target.id); // sends "rock-selection"
+    });
 
     const paperSelection = document.createElement('input');
     paperSelection.classList.add('selection-input');
@@ -82,6 +82,9 @@ function createSelectionArea() {
     paperSelection.src = "images/paperb.jpg";
     paperSelection.alt = "Paper";
     paperSelection.draggable = false;
+    paperSelection.addEventListener('click', (e) => {
+        playRound(e.target.id); // sends "paper-selection"
+    });
 
     const scissorSelection = document.createElement('input');
     scissorSelection.classList.add('selection-input');
@@ -90,6 +93,9 @@ function createSelectionArea() {
     scissorSelection.src = "images/scissorb.jpg";
     scissorSelection.alt = "Scissor";
     scissorSelection.draggable = false;
+    scissorSelection.addEventListener('click', (e) => {
+        playRound(e.target.id); // sends "scissor-selection"
+    });
 
     selectionArea.appendChild(rockSelection);
     selectionArea.appendChild(paperSelection);
@@ -157,9 +163,9 @@ function createResultsArea () {
     if (state.roundOutcome === "TIE") {
         resultText.textContent = "Tie!"
     } else if (state.roundOutcome === "WIN") {
-        resultText.textContent = "You Won!"
+        resultText.textContent = "You won!"
     } else if (state.roundOutcome === "LOSS") {
-        resultText.textContent = "You Lost!"
+        resultText.textContent = "You lost!"
     }
 
     resultsArea.appendChild(playerSelectionArea);
@@ -175,7 +181,8 @@ function createStartMatchButton () {
     startMatchButton.setAttribute('id', 'start-match');
     startMatchButton.textContent = "Start Match";
     startMatchButton.id = "start-match-button"
-    
+    startMatchButton.addEventListener('click', startMatch);
+
     return startMatchButton;
 }
 

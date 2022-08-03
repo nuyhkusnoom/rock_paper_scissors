@@ -231,7 +231,7 @@ button {
 
 #rock-selection:hover, #paper-selection:hover, #scissor-selection:hover {
     transform: scale(1.01);
-    filter: brightness(1.02);
+    filter: brightness(1.03);
 }
 
 .results-area {
@@ -253,7 +253,9 @@ button {
 .result-text {
     display: flex;
     align-items: center;
-    font-size: 150%;
+    justify-content: center;
+    font-size: 120%;
+    width: clamp(6rem, 9vw, 12rem);
 }
 
 .menu-button {

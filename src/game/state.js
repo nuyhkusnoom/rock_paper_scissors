@@ -10,6 +10,7 @@ let state = {
     computerSelection: null,
     roundOutcome: null,
     matchOutcome: null,
+    scoreboardText: `Click "Start Match" to play up to any number of rounds of your choosing.`,
 };
 
 export const getState = () => state;
