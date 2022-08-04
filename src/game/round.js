@@ -71,6 +71,33 @@ function playRound(selection) {
         state.scoreboardText = `You lost! Final Score:`;
     }
 
+    // update one-hot encoded input layer for AI training
+    if (playerSelection === "ROCK") {
+        if (computerSelection === "ROCK") {
+            state.inputLayer = [1, 0, 0, 0, 0, 0, 0, 0, 0];
+        } else if (computerSelection === "PAPER") {
+            state.inputLayer = [0, 1, 0, 0, 0, 0, 0, 0, 0];
+        } else if (computerSelection === "SCISSOR") {
+            state.inputLayer = [0, 0, 1, 0, 0, 0, 0, 0, 0];
+        }
+    } else if (playerSelection === "PAPER") {
+        if (computerSelection === "ROCK") {
+            state.inputLayer = [0, 0, 0, 1, 0, 0, 0, 0, 0];
+        } else if (computerSelection === "PAPER") {
+            state.inputLayer = [0, 0, 0, 0, 1, 0, 0, 0, 0];
+        } else if (computerSelection === "SCISSOR") {
+            state.inputLayer = [0, 0, 0, 0, 0, 1, 0, 0, 0];
+        }
+    } else if (playerSelection === "SCISSOR") {
+        if (computerSelection === "ROCK") {
+            state.inputLayer = [0, 0, 0, 0, 0, 0, 1, 0, 0];
+        } else if (computerSelection === "PAPER") {
+            state.inputLayer = [0, 0, 0, 0, 0, 0, 0, 1, 0];
+        } else if (computerSelection === "SCISSOR") {
+            state.inputLayer = [0, 0, 0, 0, 0, 0, 0, 0, 1];
+        }
+    }
+
     setState(state);
     loadPlay();
 }

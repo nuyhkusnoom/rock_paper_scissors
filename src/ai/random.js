@@ -1,3 +1,5 @@
+// This is legacy code, before the implementation of the DNN AI.
+
 // random computer choice
 function randomSelection() {
     let randomChoice = Math.random()
