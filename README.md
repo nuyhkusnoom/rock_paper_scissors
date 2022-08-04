@@ -18,7 +18,7 @@ TO-DO:
 </ul>
 
 UPDATE: August 3, 2022
-I am getting the hang of modules now. At first I was super confused trying to keep track of everything and having no idea where variables are stored, but now I think I have a decent understanding. I re-did all the UI and now I can re-implement the game logic. EDIT - I got all the basic game logic done, so all I have left is to implement the AI training section. I'm very comfortable using modules now, and I can see why it's standard practice.
+I am getting the hang of modules now. At first I was super confused trying to keep track of everything and having no idea where variables are stored, but now I think I have a decent understanding. I re-did all the UI and now I can re-implement the game logic. EDIT - I got all the basic game logic done, so all I have left is to implement the AI training section. I'm very comfortable using modules now, and I can see why it's standard practice. EDIT2 - Got a lot of work done today. Everything looks promising. I think the architecture will be a simple DNN. The "proper" way to do this might be to use an LSTM model, but I think that's a bit too much. Actually, it's already too much, but I'll finish what I've started.
 
 UPDATE: August 2, 2022
 I think I know enough of webpack to at least make modules and stuff, so I will continue with this project. Hopefully nothing breaks.
