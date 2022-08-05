@@ -265,6 +265,8 @@ button {
     color: black;
     padding: clamp(0.5rem, 1vw, 1.5rem);
     margin-top: clamp(1rem, 2vw, 3rem);
+    margin-left: clamp(1rem, 2vw, 3rem);
+    margin-right: clamp(1rem, 2vw, 3rem);
     text-align: center;
     display: inline-block;
     font-size: clamp(1rem, 1.5vw, 2rem);
@@ -273,6 +275,48 @@ button {
 .menu-button:hover {
     background-color: white;
     transform: scale(1.01);
+}
+
+/* Training page */
+
+.training {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.population-area {
+    border: 1px solid black;
+    width: clamp(30rem, 60vw, 80rem);
+    height: clamp(30rem, 60vw, 80rem);
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.member-area .member-info {
+    visibility: hidden;
+    position: absolute;
+}
+
+.member-area:hover .member-info {
+    visibility: visible;
+    background-color: black;
+    color: white;
+    z-index: 1;
+}
+
+.member-area {
+    border: .1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
 }
 
 /* Footer */

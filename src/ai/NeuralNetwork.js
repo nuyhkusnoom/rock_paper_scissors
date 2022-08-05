@@ -1,10 +1,3 @@
-// import {getState} from "../game/state";
-
-// // import {getState} from "../game/state";
-
-// let state = getState();
-
-
 // parameters
 let denselayersize = 10;
 let inputlayersize = 9;
@@ -132,7 +125,46 @@ function run(member, inputLayer) {
     let sumNumber = outputLayer.reduce((a, b) => a + b, 0)
     outputLayer = outputLayer.map(x => x/sumNumber);
 
-    return outputLayer;
+    let winner = largestNum(outputLayer);
+    let result;
+
+    if (outputLayer[0] === winner) {
+        result = {
+            memberSelection: "ROCK",
+            rockConfidence: outputLayer[0],
+            paperConfidence: outputLayer[1],
+            scissorConfidence: outputLayer[2],
+        };
+    } else if (outputLayer[1] === winner) {
+        result = {
+            memberSelection: "PAPER",
+            rockConfidence: outputLayer[0],
+            paperConfidence: outputLayer[1],
+            scissorConfidence: outputLayer[2],
+        };
+    } else if (outputLayer[2] === winner) {
+        result = {
+            memberSelection: "SCISSOR",
+            rockConfidence: outputLayer[0],
+            paperConfidence: outputLayer[1],
+            scissorConfidence: outputLayer[2],
+        };
+    }
+
+    return result;
+}
+
+function largestNum(array) {
+
+    let largest = array[0];
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > largest) {
+            largest = array[i];
+        }
+    }
+
+    return largest;
 }
 
 // dot product for each thing then sum then add bias
@@ -351,6 +383,5 @@ function probabilityMatrix(length) {
 
     return array;
 }
-
 
 export {generate, run, mutate};

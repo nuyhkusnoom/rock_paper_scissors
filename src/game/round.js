@@ -1,8 +1,11 @@
 import randomSelection from "../ai/random";
 import loadPlay from "../render/play";
 import { getState, setState } from "./state";
+import { getTrainingState, advanceGeneration, } from "../ai/GeneticAlgorithm";
+import { getComputerSelection } from "../ai/Population";
 
 let state = getState();
+let trainingState = getTrainingState();
 
 // continue the match for one round. proccessed on click of player selection.
 function playRound(selection) {
@@ -20,7 +23,10 @@ function playRound(selection) {
         playerSelection = "SCISSOR";
     }
 
-    let computerSelection = randomSelection();
+    // get computer selection from population
+    let computerSelection = getComputerSelection();
+
+    // let computerSelection = randomSelection(); (LEGACY)
 
     // update selections
     state.playerSelection = playerSelection;
@@ -99,6 +105,12 @@ function playRound(selection) {
     }
 
     setState(state);
+
+    // // if currently training, run one generation of training
+    // if (trainingState.currentlyTraining === true) {
+    //     advanceGeneration();
+    // }
+
     loadPlay();
 }
 

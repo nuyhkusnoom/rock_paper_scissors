@@ -1,6 +1,7 @@
 import loadHome from "./home";
 import loadPlay from "./play";
 import loadTraining from "./training";
+import {repopulate} from "../ai/Population";
 
 function createHeader() {
     const header = document.createElement("header");
@@ -97,6 +98,7 @@ function initializeWebsite() {
 
     setActiveButton(document.querySelector(".button-nav"));
     loadHome();
+    repopulate();
 }
 
 export default initializeWebsite;
