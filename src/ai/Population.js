@@ -24,11 +24,6 @@ function createMember(brain) {
         score3: 1/3,
         score4: 1/3,
         score5: 1/3,
-        score6: 1/3,
-        score7: 1/3,
-        score8: 1/3,
-        score9: 1/3,
-        score10: 1/3,
     }
 }
 

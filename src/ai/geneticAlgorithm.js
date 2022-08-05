@@ -38,11 +38,6 @@ function advanceGeneration() {
         thisMember.age += 1;
 
         // advances scores
-        thisMember.score10 = thisMember.score9;
-        thisMember.score9 = thisMember.score8;
-        thisMember.score8 = thisMember.score7;
-        thisMember.score7 = thisMember.score6;
-        thisMember.score6 = thisMember.score5;
         thisMember.score5 = thisMember.score4;
         thisMember.score4 = thisMember.score3;
         thisMember.score3 = thisMember.score2;
@@ -64,11 +59,6 @@ function advanceGeneration() {
             thisMember.score3,
             thisMember.score4,
             thisMember.score5,
-            thisMember.score6,
-            thisMember.score7,
-            thisMember.score8,
-            thisMember.score9,
-            thisMember.score10,
         ]
 
         // gets average score

@@ -80,27 +80,27 @@ function playRound(selection) {
     // update one-hot encoded input layer for AI training
     if (playerSelection === "ROCK") {
         if (computerSelection === "ROCK") {
-            state.inputLayer = [1, 0, 0, 0, 0, 0, 0, 0, 0];
+            state.inputLayer = [1, 0, 0, 1, 0, 0];
         } else if (computerSelection === "PAPER") {
-            state.inputLayer = [0, 1, 0, 0, 0, 0, 0, 0, 0];
+            state.inputLayer = [1, 0, 0, 0, 1, 0];
         } else if (computerSelection === "SCISSOR") {
-            state.inputLayer = [0, 0, 1, 0, 0, 0, 0, 0, 0];
+            state.inputLayer = [1, 0, 0, 0, 0, 1];
         }
     } else if (playerSelection === "PAPER") {
         if (computerSelection === "ROCK") {
-            state.inputLayer = [0, 0, 0, 1, 0, 0, 0, 0, 0];
+            state.inputLayer = [0, 1, 0, 1, 0, 0];
         } else if (computerSelection === "PAPER") {
-            state.inputLayer = [0, 0, 0, 0, 1, 0, 0, 0, 0];
+            state.inputLayer = [0, 1, 0, 0, 1, 0];
         } else if (computerSelection === "SCISSOR") {
-            state.inputLayer = [0, 0, 0, 0, 0, 1, 0, 0, 0];
+            state.inputLayer = [0, 1, 0, 0, 0, 1];
         }
     } else if (playerSelection === "SCISSOR") {
         if (computerSelection === "ROCK") {
-            state.inputLayer = [0, 0, 0, 0, 0, 0, 1, 0, 0];
+            state.inputLayer = [0, 0, 1, 1, 0, 0];
         } else if (computerSelection === "PAPER") {
-            state.inputLayer = [0, 0, 0, 0, 0, 0, 0, 1, 0];
+            state.inputLayer = [0, 0, 1, 0, 1, 0];
         } else if (computerSelection === "SCISSOR") {
-            state.inputLayer = [0, 0, 0, 0, 0, 0, 0, 0, 1];
+            state.inputLayer = [0, 0, 1, 0, 0, 1];
         }
     }
 

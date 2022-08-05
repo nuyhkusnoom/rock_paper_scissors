@@ -11,7 +11,7 @@ let state = {
     roundOutcome: null,
     matchOutcome: null,
     scoreboardText: `Click "Start Match" to play up to any number of rounds of your choosing.`,
-    inputLayer: [0,0,0,0,0,0,0,0,0],
+    inputLayer: [0,0,0,0,0,0],
 };
 
 export const getState = () => state;
