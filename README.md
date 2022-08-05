@@ -1,7 +1,3 @@
----
-permalink: /index.html
----
-
 # rock_paper_scissors
 
 This will be my first major project on The Odin Project. Ultimately, I want the user to be able to play rock-paper-scissors with an AI bot that will learn patterns from the user's playstyle. There will be a UI for the player to select and confirm their choice, and a scorekeeper that will show wins/losses and other relevant statistics.
