@@ -6,14 +6,34 @@ import {repopulate} from "../ai/Population";
 function createHeader() {
     const header = document.createElement("header");
     header.classList.add("header");
+
+    const darkModeButton = createDarkModeButton();
   
     const websiteName = document.createElement("h1");
     websiteName.textContent = "Rock Paper Scissors";
-  
+    
+    header.appendChild(darkModeButton);
     header.appendChild(websiteName);
     header.appendChild(createNav());
   
     return header;
+}
+
+function createDarkModeButton() {
+
+    const darkModeButton = document.createElement('button');
+    darkModeButton.id = "dark-mode-button";
+    darkModeButton.textContent = "Toggle Dark Mode";
+
+    darkModeButton.addEventListener(('click'), () => {
+
+        let body = document.documentElement;
+        body.classList.toggle('dark-mode');
+
+
+    });
+
+    return darkModeButton;
 }
 
 function createNav() {

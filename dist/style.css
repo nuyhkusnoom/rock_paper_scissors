@@ -1,98 +1,27 @@
-/* body{
-    display: flex;
-    flex-direction: column;
-}
-
-.Top{
-    display: flex;
-    flex-direction: row;
-}
-
-.Bot{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.NeuralNetworkArea {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-
-.Gamebox {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    border: 1px solid black;
-    border-radius: 5px;
-    flex: 1;
-}
-
-.PlayerSelectionArea{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.ResultsArea{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px;
-}
-
-.IndividualResult{
-    display: flex;
-    flex-direction: column;
-}
-
-.PlayerSelection {
-    height: 100px;
-    width: 100px;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 10px;
-}
-
-.Scoreboard {
-    height: 100px;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-button {
-    margin: 5px;
-}
-
-.ResultText {
-    height: 80px;
-    width: 80px;
-    margin: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.ScoreTally {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    flex: 1;
-} */
-
 :root {
     --font-color: rgb(0, 0, 0);
     --border-color: #222;
     --background: rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255);
+}
+
+.dark-mode {
+    --font-color: white;
+    --border-color: #222;
+    --background: rgba(255, 255, 255, 0.1);
+    background: black;
+}
+
+#dark-mode-button {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid black;
+    border-radius: clamp(0.5rem, 1vw, 1.5rem);
+    text-align: center;
+    display: inline-block;
+    font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
 html {
@@ -262,7 +191,6 @@ button {
     background-color: rgba(255, 255, 255, 0.125);
     border: 2px solid black;
     border-radius: clamp(0.5rem, 1vw, 1.5rem);
-    color: black;
     padding: clamp(0.5rem, 1vw, 1.5rem);
     margin-top: clamp(1rem, 2vw, 3rem);
     margin-left: clamp(1rem, 2vw, 3rem);
@@ -274,6 +202,7 @@ button {
 
 .menu-button:hover {
     background-color: white;
+    color: black;
     transform: scale(1.01);
 }
 

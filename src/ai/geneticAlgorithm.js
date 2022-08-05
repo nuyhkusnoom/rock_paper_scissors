@@ -91,14 +91,10 @@ function replenishPopulation() {
     let numberToReplenish = Math.round(populationsize * purgerate);
 
     for (let i = 0; i < numberToReplenish; i++) {
-        
-        console.log(i)
 
         let survivingMember = population[i];
-        console.log(survivingMember.brain)
 
         let newMemberBrain = mutate(survivingMember.brain);
-        console.log(newMemberBrain)
 
         let newmember = createMember(newMemberBrain);
 
