@@ -1,22 +1,24 @@
 import {generate, run} from "./NeuralNetwork";
 import { getState } from "../game/state";
-import randomSelection from "./random";
+import { populationsize } from "../parameters";
+
+// import randomSelection from "./random";
 
 let state = getState();
-
-// parameters
-let populationsize = 100;
 
 let population = [];
 
 // create an object member of population with a generated brain and other characteristics.
-function createMember(brain, score, age) {
+function createMember(brain) {
     return {
         brain: brain,
-        score: score,
-        age: age,
+        score: 0,
+        age: 0,
         prediction: null,
         confidence: null,
+        rockConfidence: null,
+        paperConfidence: null,
+        scissorConfidence: null,
         score1: 1/3,
         score2: 1/3,
         score3: 1/3,
@@ -36,7 +38,7 @@ function repopulate() {
     population = [];
 
     for (let i = 0; i < populationsize; i++) {
-        population.push(createMember(generate(), 0, 0));
+        population.push(createMember(generate()));
     }
 }
 
@@ -75,6 +77,10 @@ function getComputerSelection() {
             scissorVotes += 1;
             scissorScore += population[i].score;
         }
+
+        population[i].rockConfidence = thisSelection.rockConfidence;
+        population[i].paperConfidence = thisSelection.paperConfidence;
+        population[i].scissorConfidence = thisSelection.scissorConfidence;
     }
 
     if (rockVotes > paperVotes && rockVotes > scissorVotes) {

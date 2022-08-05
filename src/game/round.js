@@ -1,7 +1,7 @@
-import randomSelection from "../ai/random";
+// import randomSelection from "../ai/random";
 import loadPlay from "../render/play";
 import { getState, setState } from "./state";
-import { getTrainingState, advanceGeneration, } from "../ai/GeneticAlgorithm";
+import { getTrainingState, geneticAlgorithm, } from "../ai/GeneticAlgorithm";
 import { getComputerSelection } from "../ai/Population";
 
 let state = getState();
@@ -107,9 +107,9 @@ function playRound(selection) {
     setState(state);
 
     // // if currently training, run one generation of training
-    // if (trainingState.currentlyTraining === true) {
-    //     advanceGeneration();
-    // }
+    if (trainingState.currentlyTraining === true) {
+        geneticAlgorithm();
+    }
 
     loadPlay();
 }

@@ -1,10 +1,4 @@
-// parameters
-let denselayersize = 10;
-let inputlayersize = 9;
-let outputlayersize = 3;
-let hardmutationrate = 0.10;
-let softmutationrate = 0.50;
-let mutationvariance = 0.05;
+import { denselayersize, inputlayersize, outputlayersize, hardmutationrate, softmutationrate, mutationvariance } from "../parameters";
 
 // generates a fresh, randomized neural network
 function generate() {
@@ -246,7 +240,7 @@ function mutate(member) {
         layer6.push(member[5][i])
     }
     
-    newmember = [];
+    let newmember = [];
     let P;
     let Q;
 

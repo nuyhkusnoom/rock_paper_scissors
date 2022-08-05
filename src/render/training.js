@@ -40,18 +40,23 @@ function createMemberArea(iteration) {
     memberInfo.classList.add('member-info');
 
     memberInfo.appendChild(createText(`Ranking: ${iteration+1}`));
-    memberInfo.appendChild(createText(`Score: ${population[iteration].score}`));
+    memberInfo.appendChild(createText(`Score: ${roundToTwo(population[iteration].score*100)}%`));
     memberInfo.appendChild(createText(`Age: ${population[iteration].age}`));
     memberInfo.appendChild(createText(`Prediction: ${population[iteration].prediction}`));
-    memberInfo.appendChild(createText(`Confidence: ${population[iteration].confidence}`));
+    memberInfo.appendChild(createText(`Confidence: ${roundToTwo(population[iteration].confidence*100)}%`));
 
     memberArea.appendChild(memberInfo);
 
     return memberArea;
 }
 
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2")  + "e-2");
+}
+
 function createText(text) {
     const memberText = document.createElement('div');
+    memberText.classList.add('member-text');
     memberText.textContent = text;
 
     return memberText;

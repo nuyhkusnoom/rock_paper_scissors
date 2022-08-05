@@ -314,6 +314,14 @@ button {
     align-items: center;
 }
 
+.member-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(1rem, 1.5vw, 2rem);
+}
+
 .button-area {
     display: flex;
     justify-content: center;
