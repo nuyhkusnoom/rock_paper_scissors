@@ -18,7 +18,7 @@ TO-DO:
 </ul>
 
 UPDATE: August 5, 2022
-I was able to implement the training algorithm quicker than I thought. Tested out the bot. It can detect simple patterns like "only plays rock/paper/scissor" or "only plays what would win against the hand just played." Overall, I think it's a success for how limited the architecture is. I think I could have better results if I switch up how the inputs are encoded, so I think I'll test out and see if that's any better.
+I was able to implement the training algorithm quicker than I thought. Tested out the bot. It can detect simple patterns like "only plays rock/paper/scissor" or "only plays what would win against the hand just played." Overall, I think it's a success for how limited the architecture is. I think I could have better results if I switch up how the inputs are encoded, so I think I'll test out and see if that's any better. EDIT - Changing up the input format seems to have made a slight improvement. It can learn the basic patterns quicker now. Now to implement Dark Mode, and I'm done with this project.
 
 UPDATE: August 4, 2022
 I was able to do a ton of work. I was too focused and forgot to update in between, and didn't commit as often as I probably should have. I got the prediction system to work (neural nets make individual predictions and the aggregate prediction is what the computer will select). I was also able to set up the UI and displays for informations for each neural network in the population. Now all I have to add is the training algorithm and it should be complete!
