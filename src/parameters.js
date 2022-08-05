@@ -1,5 +1,5 @@
 // parameters
-let denselayersize = 10;
+let denselayersize = 20;
 let inputlayersize = 6;
 let outputlayersize = 3;
 let hardmutationrate = 0.10;
