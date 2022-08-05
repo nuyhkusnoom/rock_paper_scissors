@@ -1,6 +1,6 @@
 # rock_paper_scissors
 
-LIVE DEMO: (to be inserted)
+LIVE DEMO: (https://nuyhkusnoom.github.io/rock_paper_scissors/dist/index.html)
 
 Play against an AI that learns as you play! The computer's selection is an aggregate vote of a population of 100 neural networks. The neural networks have a very simple architecture of 2 hidden layers and 20 nodes in each layer. At the end of each round, the population is ranked by a fitness function (scored by having the correct confidence level for the player's selection), and half the population survives and procreates (creates a mutated clone of itself, no crossover). All parameters can be changed in the parameters.js file.
 
